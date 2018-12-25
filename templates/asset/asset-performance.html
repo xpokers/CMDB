@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% load  static %}
+{% block  title %}性能{% endblock %}
+{% block header-css %}
+{% for jsfile_name in script_list %}
+    <script src="/static/echarts/{{ jsfile_name }}.js"></script>
+{% endfor %}
+{% endblock %}
+
+
+{% block page-content %}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>性能</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="/index.html">主页</a>
+                </li>
+                <li>
+                    <a href="asset.html">资产管理</a>
+                </li>
+                <li class="active">
+                    <strong>性能</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+    </div>
+
+<div class="wrapper wrapper-content animated fadeInRight chart"    >
+            <div class="row"  >
+                <div class="col-sm-6">
+                    <div class="ibox float-e-margins">
+
+                    <div class="ibox-title">
+                            <h5>CPU 当前最新</h5>
+                              <div class="ibox-tools">
+                                <a class="collapse-links">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">配置选项 1</a>
+                                    </li>
+                                    <li><a href="#">配置选项 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    <div class="ibox-content" >
+                        {{ cpu | safe }}
+                    </div>
+                </div>
+
+            </div>
+                <div class="col-sm-6">
+                    <div class="ibox float-e-margins">
+
+                    <div class="ibox-title">
+                            <h5>内存 当前最新</h5>
+                              <div class="ibox-tools">
+                                <a class="collapse-links">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">配置选项 1</a>
+                                    </li>
+                                    <li><a href="#">配置选项 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    <div class="ibox-content" >
+                      {{ mem  | safe}}
+                    </div>
+                </div>
+
+               </div>
+              <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+
+                    <div class="ibox-title">
+                            <h5>流量 默认显示最近一周</h5>
+                              <div class="ibox-tools">
+                                <a class="collapse-links">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">配置选项 1</a>
+                                    </li>
+                                    <li><a href="#">配置选项 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    <div class="ibox-content" >
+
+               {{ network | safe }}
+                    </div>
+                </div>
+
+            </div>
+
+             <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+
+                    <div class="ibox-title">
+                            <h5>历史  默认显示最近一周</h5>
+                              <div class="ibox-tools">
+                                <a class="collapse-links">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">配置选项 1</a>
+                                    </li>
+                                    <li><a href="#">配置选项 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    <div class="ibox-content" >
+                       {{  history_cpumem |  safe  }}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+
+
+{% block footer-js %}
+
+
+    {{ onresize  | safe }}
+
+{% endblock %}
+
+
+{% endblock %}
+
+

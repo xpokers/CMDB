@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block  title %}AutOps | 首页{% endblock %}
+
+
+
+{% block header-css %}
+
+{% for jsfile_name in script_list %}
+        <script src="/static/echarts/{{ jsfile_name }}.js"></script>
+{% endfor %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{% block page-content %}
+
+<div class="wrapper wrapper-content animated fadeInRight chart">
+    <div class="row">
+     <div class="col-sm-6">
+        <div class="ibox float-e-margins">
+
+            <div class="ibox-title">
+                <h5>产品线</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-links">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#">配置选项 1</a>
+                        </li>
+                        <li><a href="#">配置选项 2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="ibox-content">
+            <div  >{{ myechart|safe }}</div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="ibox float-e-margins">
+
+            <div class="ibox-title">
+                <h5>数据中心</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-links">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#">配置选项 1</a>
+                        </li>
+                        <li><a href="#">配置选项 2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="ibox-content" >
+            <div  >{{ myechart1|safe }}</div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+    </div>
+
+
+
+
+{% endblock %}
+
+{% block footer-js %}
+    <script>
+
+              toastr.options = {
+                                      "closeButton": true,
+                                      "debug": false,
+                                      "progressBar": true,
+                                      "preventDuplicates": true,
+                                      "positionClass": "toast-top-right",
+                                      "onclick": null,
+                                      "showDuration": "400",
+                                      "hideDuration": "1000",
+                                      "timeOut": "7000",
+                                      "extendedTimeOut": "1000",
+                                      "showEasing": "swing",
+                                      "hideEasing": "linear",
+                                      "showMethod": "fadeIn",
+                                      "hideMethod": "fadeOut"
+                                    }
+            ;
+
+
+
+               toastr.success("欢迎来到AutoOps!", "欢迎")
+
+</script>
+
+    {{ onresize  | safe }}
+
+
+
+
+
+
+
+
+{% endblock %}
